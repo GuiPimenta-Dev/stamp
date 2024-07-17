@@ -12,4 +12,4 @@ class HelloStampConfig:
 
         services.api_gateway.create_endpoint("GET", "/hello_stamp", function, authorizer="secret")
 
-            
+        services.dynamodb.grant_write("stamp_table", function)

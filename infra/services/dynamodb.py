@@ -7,11 +7,14 @@ from lambda_forge.trackers import invoke, trigger
 
 class DynamoDB:
     def __init__(self, scope, context) -> None:
-
-        self.dynamo = dynamodb.Table.from_table_arn(
+        
+        self.stamp_table = dynamodb.Table(
             scope,
-            "Dynamo",
-            context.resources["arns"]["dynamo_arn"],
+            "StampTable",
+            table_name=f"{context.stage}-{context.name}-Stamp",
+            partition_key=dynamodb.Attribute(name="PK", type=dynamodb.AttributeType.STRING),
+            sort_key=dynamodb.Attribute(name="SK", type=dynamodb.AttributeType.STRING),
+            stream=dynamodb.StreamViewType.NEW_AND_OLD_IMAGES,
         )
 
     @trigger(service="dynamodb", trigger="table", function="function")

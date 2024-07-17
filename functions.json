@@ -1,5 +1,13 @@
 [
     {
+        "name": "SecretAuthorizer",
+        "path": "./authorizers/secret",
+        "description": "An authorizer to validate requests based on a secret present on the headers",
+        "timeout": 60,
+        "triggers": [],
+        "invocations": []
+    },
+    {
         "name": "HelloWorld",
         "path": "./functions/hello_world",
         "description": "A simple hello word",
@@ -24,9 +32,14 @@
                 "service": "api_gateway",
                 "trigger": "/hello_stamp",
                 "method": "GET",
-                "public": true
+                "public": false
             }
         ],
-        "invocations": []
+        "invocations": [
+            {
+                "service": "dynamodb",
+                "resource": "stamp_table"
+            }
+        ]
     }
 ]
