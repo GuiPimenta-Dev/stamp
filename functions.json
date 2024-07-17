@@ -1,0 +1,32 @@
+[
+    {
+        "name": "HelloWorld",
+        "path": "./functions/hello_world",
+        "description": "A simple hello word",
+        "timeout": 60,
+        "triggers": [
+            {
+                "service": "api_gateway",
+                "trigger": "/hello_world",
+                "method": "GET",
+                "public": true
+            }
+        ],
+        "invocations": []
+    },
+    {
+        "name": "HelloStamp",
+        "path": "./functions/hello_stamp",
+        "description": "A simple hello word",
+        "timeout": 60,
+        "triggers": [
+            {
+                "service": "api_gateway",
+                "trigger": "/hello_stamp",
+                "method": "GET",
+                "public": true
+            }
+        ],
+        "invocations": []
+    }
+]

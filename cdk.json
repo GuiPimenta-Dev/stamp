@@ -38,7 +38,7 @@
     "@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy": true,
     "@aws-cdk/aws-route53-patters:useCertificate": true,
     "@aws-cdk/customresources:installLatestAwsSdkDefault": false,
-    "region": "us-east-2",
+    "region": "us-east-1",
     "account": "211125768252",
     "name": "Stamp",
     "repo": {
