@@ -1,3 +1,4 @@
+from authorizers.secret.config import SecretAuthorizerConfig
 from functions.hello_stamp.config import HelloStampConfig
 from functions.hello_world.config import HelloWorldConfig
 from docs.config import DocsConfig
@@ -12,6 +13,9 @@ class LambdaStack(Stack):
         super().__init__(scope, f"{context.name}-Lambda-Stack", **kwargs)
 
         self.services = Services(self, context)
+
+        # Authorizers
+        SecretAuthorizerConfig(self.services)
 
         # Docs
         DocsConfig(self.services)

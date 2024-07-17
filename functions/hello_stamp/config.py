@@ -10,6 +10,6 @@ class HelloStampConfig:
             
         )
 
-        services.api_gateway.create_endpoint("GET", "/hello_stamp", function, public=True)
+        services.api_gateway.create_endpoint("GET", "/hello_stamp", function, authorizer="secret")
 
             
